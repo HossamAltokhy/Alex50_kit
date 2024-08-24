@@ -15,32 +15,86 @@
 #include "mBUTTON.h"
 #include "mRELAY.h"
 
+
+#define KEYPAD_PORT      PORTD
+#define KEYPAD_PORT_DIR  DDRD
+#define KEYPAD_PIN       PIND
+#define row0            0x10
+#define row1            0x20
+#define row2            0x40
+#define row3            0x80
+
+void init_Keypad();
+char getKey();
+
 int main(void) {
     /* Replace with your application code */
 
-    int x = 10;
-    init_LEDs();
-//    init_BUZZER();
-    init_RELAY();
-    init_BUTTONs();
-
+    init_Keypad();
+    setPORTB_DIR(OUTPUT);
 
     while (1) {
-        x=10;
-        if (isPressed(BTN0)) {
-            LED0_ON();
-            LED1_ON();
-            LED2_ON();
-            //BUZZER_ON();
-            RELAY_ON();
-        } else {
-            LED0_OFF();
-            LED1_OFF();
-            LED2_OFF();
-            //BUZZER_OFF();
-            RELAY_OFF();
-        }
+
+        setPORTB(getKey());
+        _delay_ms(200);
+    }
+}
+
+void init_Keypad() {
+    KEYPAD_PORT_DIR = 0x0F; // 00001111
+
+    KEYPAD_PORT = 0x07; // 00000111
+}
+
+char getKey() {
+    KEYPAD_PORT = 0x07;
+    char row = (KEYPAD_PIN & 0xF0);
+
+    switch (row) {
+        case row0:
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<0);
+            if(KEYPAD_PIN & 0xF0){
+                return 3;
+            }
+            
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<1);
+            if(KEYPAD_PIN & 0xF0){
+                return 2;
+            }
+            
+            return 1;
+            break;
+        case row1:
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<0);
+            if(KEYPAD_PIN & 0xF0){
+                return 6;
+            }
+            
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<1);
+            
+            if(KEYPAD_PIN & 0xF0){
+                return 5;
+            }
+            
+            return 4;
+            break;
+        case row2:
+            return 0;
+            break;
+        case row3:
+            return 0;
+            break;
 
 
     }
+
+    return -1;
 }
