@@ -10,35 +10,37 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include "mDIO.h"
-
-
-
-#define LED0   PA2
-#define BUTTON0   PA7
-
+#include "mLEDS.h"
+#include "mBUZZ.h"
+#include "mBUTTON.h"
+#include "mRELAY.h"
 
 int main(void) {
     /* Replace with your application code */
-    // set PA2 as output
-    setPORTA_PIN_DIR(LED0, OUTPUT);
-    setPORTA_PIN_DIR(BUTTON0, INPUT);
-    
-    
-//    init_LEDS();
-    
-    while (1) {
 
-        if(readPORTA_PIN(BUTTON0)){
-            setPORTA_PIN(LED0, ON);
+    int x = 10;
+    init_LEDs();
+//    init_BUZZER();
+    init_RELAY();
+    init_BUTTONs();
+
+
+    while (1) {
+        x=10;
+        if (isPressed(BTN0)) {
+            LED0_ON();
+            LED1_ON();
+            LED2_ON();
+            //BUZZER_ON();
+            RELAY_ON();
+        } else {
+            LED0_OFF();
+            LED1_OFF();
+            LED2_OFF();
+            //BUZZER_OFF();
+            RELAY_OFF();
         }
-        else{
-            setPORTA_PIN(LED0, OFF);
-        }
-        
-//        if(isPressed(BUTTON0)){
-//            LED0_ON();
-//        }else{
-//            LED0_OFF();
-//        }
+
+
     }
 }
