@@ -87,10 +87,41 @@ char getKey() {
             return 4;
             break;
         case row2:
-            return 0;
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<0);
+            if(KEYPAD_PIN & 0xF0){
+                return 9;
+            }
+            
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<1);
+            
+            if(KEYPAD_PIN & 0xF0){
+                return 8;
+            }
+            
+            return 7;
+            
             break;
         case row3:
-            return 0;
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<0);
+            if(KEYPAD_PIN & 0xF0){
+                return '#';
+            }
+            
+            KEYPAD_PORT &= ~((1<<2)|(1<<1)|(1<<0));
+            _delay_ms(10);
+            KEYPAD_PORT |=(1<<1);
+            
+            if(KEYPAD_PIN & 0xF0){
+                return 0;
+            }
+            
+            return '*';
             break;
 
 
