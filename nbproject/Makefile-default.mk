@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c m7SEG.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/mDIO.o.d ${OBJECTDIR}/mLEDS.o.d ${OBJECTDIR}/mBUZZ.o.d ${OBJECTDIR}/mRELAY.o.d ${OBJECTDIR}/mBUTTON.o.d ${OBJECTDIR}/mKeypad.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o ${OBJECTDIR}/m7SEG.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/mDIO.o.d ${OBJECTDIR}/mLEDS.o.d ${OBJECTDIR}/mBUZZ.o.d ${OBJECTDIR}/mRELAY.o.d ${OBJECTDIR}/mBUTTON.o.d ${OBJECTDIR}/mKeypad.o.d ${OBJECTDIR}/m7SEG.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o ${OBJECTDIR}/m7SEG.o
 
 # Source Files
-SOURCEFILES=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c
+SOURCEFILES=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c m7SEG.c
 
 
 
@@ -136,6 +136,12 @@ ${OBJECTDIR}/mKeypad.o: mKeypad.c  .generated_files/flags/default/5a534fad518f93
 	@${RM} ${OBJECTDIR}/mKeypad.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mKeypad.o.d" -MT "${OBJECTDIR}/mKeypad.o.d" -MT ${OBJECTDIR}/mKeypad.o -o ${OBJECTDIR}/mKeypad.o mKeypad.c 
 	
+${OBJECTDIR}/m7SEG.o: m7SEG.c  .generated_files/flags/default/decef68ffd4651098c3ccf9005cf066681a0aacf .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/m7SEG.o.d 
+	@${RM} ${OBJECTDIR}/m7SEG.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/m7SEG.o.d" -MT "${OBJECTDIR}/m7SEG.o.d" -MT ${OBJECTDIR}/m7SEG.o -o ${OBJECTDIR}/m7SEG.o m7SEG.c 
+	
 else
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/7f65fd50876231cac1eba295270a4f7a5dacbb74 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
 	@${MKDIR} "${OBJECTDIR}" 
@@ -178,6 +184,12 @@ ${OBJECTDIR}/mKeypad.o: mKeypad.c  .generated_files/flags/default/2572d656739935
 	@${RM} ${OBJECTDIR}/mKeypad.o.d 
 	@${RM} ${OBJECTDIR}/mKeypad.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mKeypad.o.d" -MT "${OBJECTDIR}/mKeypad.o.d" -MT ${OBJECTDIR}/mKeypad.o -o ${OBJECTDIR}/mKeypad.o mKeypad.c 
+	
+${OBJECTDIR}/m7SEG.o: m7SEG.c  .generated_files/flags/default/d60adf0164709fc31f7c42bfe952e8619664d68 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/m7SEG.o.d 
+	@${RM} ${OBJECTDIR}/m7SEG.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/m7SEG.o.d" -MT "${OBJECTDIR}/m7SEG.o.d" -MT ${OBJECTDIR}/m7SEG.o -o ${OBJECTDIR}/m7SEG.o m7SEG.c 
 	
 endif
 
