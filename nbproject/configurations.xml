@@ -9,6 +9,7 @@
       <itemPath>mBUZZ.h</itemPath>
       <itemPath>mRELAY.h</itemPath>
       <itemPath>mBUTTON.h</itemPath>
+      <itemPath>mKeypad.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
       <itemPath>mBUZZ.c</itemPath>
       <itemPath>mRELAY.c</itemPath>
       <itemPath>mBUTTON.c</itemPath>
+      <itemPath>mKeypad.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
