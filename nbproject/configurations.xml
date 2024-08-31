@@ -11,6 +11,7 @@
       <itemPath>mBUTTON.h</itemPath>
       <itemPath>mKeypad.h</itemPath>
       <itemPath>m7SEG.h</itemPath>
+      <itemPath>mLCD8.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,6 +28,7 @@
       <itemPath>mBUTTON.c</itemPath>
       <itemPath>mKeypad.c</itemPath>
       <itemPath>m7SEG.c</itemPath>
+      <itemPath>mLCD8.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

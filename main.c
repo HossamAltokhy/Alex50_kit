@@ -16,6 +16,7 @@
 #include "mRELAY.h"
 #include "mKeypad.h"
 #include "m7SEG.h"
+#include <stdlib.h>
 
 
 
@@ -25,91 +26,110 @@
 #define LCD_CONTROL_DIR    DDRB
 #define LCD_CONTROL        PORTB
 
-#define LCD_EN             PB0
-#define LCD_RW             PB1
-#define LCD_RS             PB2
+#define LCD_EN             PB3
+#define LCD_RW             PB2
+#define LCD_RS             PB1
+
+// LCD Commands Table 
+
+#define CLEAR                               0x01
+#define RETURN_HOME                         0x02
+#define ENTRY_MODE                          0x06
+#define DISPLAY_ON_CURSOR_ON                0x0E  
+#define DISPLAY_ON_CURSOR_OFF_BLINKING      0x0D
+#define DISPLAY_ON_CURSOR_OFF_NOBLINKING    0x0C
+#define _4BIT_MODE                          0x2C
 
 
+void init_LCD4();
+void LCD4_cmd(char cmd);
+void LCD4_data(char data);
+void LCD4_en();
+void LCD4_clear();
+void LCD4_num(int num);
+void LCD4_str(char* str);
 
-void init_LCD();
-void LCD_cmd(char cmd);
-void LCD_data(char data);
-void LCD_en();
-void LCD_clear();
-void LCD_num(int num);
-void LCD_str(char* str);
-
+char str[] = "Hello World";
 
 int main(void) {
     /* Replace with your application code */
 
-    init_7SEG();
-    int num1=0;
-    int num2=0;
-    unsigned int count =0;
+
+    init_LCD4();
+
+    LCD4_data('A');
     while (1) {
-        if(num1==10){
-            num1 =0 ;
-            num2++;
-        }
-        set_7SEG_R(num1);
-        if(num2==10){
-            num2 =0 ;
-        }
-        set_7SEG_L(num2);
-        count++;
-        _delay_ms(10);
-        if(count == 99){
-            num1++;
-            count =0;
-        }
-        //_delay_ms(200);
+
+
     }
 }
 
-void LCD_init(){
-    // initialize IO pins
-    
-    LCD_PORT_DIR = 0xFF;
-    LCD_CONTROL_DIR |= (1<<LCD_EN)|(1<<LCD_RS)|(1<<LCD_RW);
-    
-    // Write ONLY
-    LCD_CONTROL &= ~(1<<LCD_RW);
-    
+void init_LCD4() {
+
+    LCD_PORT_DIR |= 0xF0;
+    LCD_CONTROL_DIR |= (1 << LCD_EN) | (1 << LCD_RS) | (1 << LCD_RW);
+
+    // Write Only
+    LCD_CONTROL &= ~(1 << LCD_RW);
+
     _delay_ms(1);
-    
+
     // Commands to initialize LCD
-    LCD_clear();
-//    LCD_cmd(RETURN_HOME);
-//    LCD_cmd(ENTRY_MODE);
-    // To be continued .......
+    LCD4_clear();
+    LCD4_cmd(RETURN_HOME);
+    _delay_ms(2);
+    LCD4_cmd(ENTRY_MODE);
+    _delay_ms(2);
+    LCD4_cmd(DISPLAY_ON_CURSOR_ON);
+    _delay_ms(2);
+    LCD4_cmd(_4BIT_MODE);
+
+    _delay_ms(50);
+
+}
+
+void LCD4_en() {
+    LCD_CONTROL |= (1 << LCD_EN);
+    _delay_us(50);
+    LCD_CONTROL &= ~(1 << LCD_EN);
+}
+
+void LCD4_cmd(char cmd) {
+
+    //Select Command Register
+    LCD_CONTROL &= ~(1 << LCD_RS);
+    LCD_PORT = (LCD_PORT & 0x0F)|(cmd & 0xF0);
+    LCD4_en();
+    LCD_PORT = (LCD_PORT & 0x0F)|(cmd<<4);
+    LCD4_en();
+
+}
+void LCD4_data(char data) {
+
+    //Select Data Register
+    LCD_CONTROL |= (1 << LCD_RS);
+    LCD_PORT = (LCD_PORT & 0x0F)|(data & 0xF0);
+    LCD4_en();
+    LCD_PORT = (LCD_PORT & 0x0F)|(data<<4);
+    LCD4_en();
+
+}
+
+void LCD4_str(char* str){
+    for(int i=0; str[i] != '\0'; i++){
+        LCD4_data(str[i]);
+    }
+}
+
+void LCD4_num(int num){
+    char str[11];
     
-    void LCD_cmd(char cmd);
-
+    itoa(num, str, 10);
+    
+    LCD4_str(str);
 }
 
-
-void LCD_en(){
-    LCD_CONTROL |= (1<<LCD_EN);
-    _delay_ms(20);
-    LCD_CONTROL &= ~(1<<LCD_EN);
-
+void LCD4_clear(){
+    LCD4_cmd(CLEAR);
+    _delay_ms(4);
 }
-
-void LCD_cmd(char cmd){
-    //Select Command Register
-    LCD_CONTROL &= ~(1<<LCD_RS);
-    LCD_PORT = cmd;
-    LCD_en();
-}
-void LCD_data(char data){
-    //Select Command Register
-    LCD_CONTROL |= (1<<LCD_RS);
-    LCD_PORT = data;
-    LCD_en();
-}
-
-void LCD_clear(){
-    LCD_cmd(0x01);
-}
-
