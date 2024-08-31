@@ -43,10 +43,27 @@ void LCD_str(char* str);
 int main(void) {
     /* Replace with your application code */
 
-   
-    
+    init_7SEG();
+    int num1=0;
+    int num2=0;
+    unsigned int count =0;
     while (1) {
-
+        if(num1==10){
+            num1 =0 ;
+            num2++;
+        }
+        set_7SEG_R(num1);
+        if(num2==10){
+            num2 =0 ;
+        }
+        set_7SEG_L(num2);
+        count++;
+        _delay_ms(10);
+        if(count == 99){
+            num1++;
+            count =0;
+        }
+        //_delay_ms(200);
     }
 }
 

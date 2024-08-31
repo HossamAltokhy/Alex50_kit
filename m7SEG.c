@@ -1,4 +1,7 @@
+#define F_CPU 16000000UL
 #include <avr/io.h>
+#include "mDIO.h"
+#include <util/delay.h>
 #include "m7SEG.h"
 
 void init_7SEG(){

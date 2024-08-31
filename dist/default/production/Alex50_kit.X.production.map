@@ -10,6 +10,14 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/main.o
  .data          0x0000000000000000        0x0 build/default/production/main.o
  .bss           0x0000000000000000        0x0 build/default/production/main.o
+ .text.LCD_en   0x0000000000000000       0x18 build/default/production/main.o
+ .text.LCD_cmd  0x0000000000000000        0xa build/default/production/main.o
+ .text.LCD_data
+                0x0000000000000000        0xa build/default/production/main.o
+ .text.LCD_clear
+                0x0000000000000000        0x8 build/default/production/main.o
+ .text.LCD_init
+                0x0000000000000000       0x1e build/default/production/main.o
  .text          0x0000000000000000        0x0 build/default/production/mDIO.o
  .data          0x0000000000000000        0x0 build/default/production/mDIO.o
  .bss           0x0000000000000000        0x0 build/default/production/mDIO.o
@@ -163,6 +171,11 @@ Discarded input sections
  .debug_str     0x0000000000000000        0x0 build/default/production/mKeypad.o
  .comment       0x0000000000000000       0x30 build/default/production/mKeypad.o
  .debug_frame   0x0000000000000000       0x34 build/default/production/mKeypad.o
+ .text          0x0000000000000000        0x0 build/default/production/m7SEG.o
+ .data          0x0000000000000000        0x0 build/default/production/m7SEG.o
+ .bss           0x0000000000000000        0x0 build/default/production/m7SEG.o
+ .text.set_7SEG_DIP
+                0x0000000000000000       0x10 build/default/production/m7SEG.o
  .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/avr5/memx-const\libgcc.a(_exit.o)
@@ -205,6 +218,7 @@ LOAD build/default/production/mBUZZ.o
 LOAD build/default/production/mRELAY.o
 LOAD build/default/production/mBUTTON.o
 LOAD build/default/production/mKeypad.o
+LOAD build/default/production/m7SEG.o
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
 END GROUP
@@ -457,6 +471,7 @@ END GROUP
  *(.comment)
  .comment       0x0000000000000000       0x2f build/default/production/main.o
                                          0x30 (size before relaxing)
+ .comment       0x000000000000002f       0x30 build/default/production/m7SEG.o
 
 .stack.descriptors.hdr
                 0x0000000000000000        0xe
@@ -478,41 +493,49 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000       0x40
+.debug_aranges  0x0000000000000000       0x80
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x40 build/default/production/main.o
+                0x0000000000000000       0x48 build/default/production/main.o
+ .debug_aranges
+                0x0000000000000048       0x38 build/default/production/m7SEG.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000      0x940
+.debug_info     0x0000000000000000      0xd68
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x4e6 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_info    0x00000000000004e6      0x45a build/default/production/main.o
+ .debug_info    0x00000000000004e6      0x4db build/default/production/main.o
+ .debug_info    0x00000000000009c1      0x3a7 build/default/production/m7SEG.o
 
-.debug_abbrev   0x0000000000000000      0x5e2
+.debug_abbrev   0x0000000000000000      0x6f4
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x4a3 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_abbrev  0x00000000000004a3      0x13f build/default/production/main.o
+ .debug_abbrev  0x00000000000004a3      0x16f build/default/production/main.o
+ .debug_abbrev  0x0000000000000612       0xe2 build/default/production/m7SEG.o
 
-.debug_line     0x0000000000000000      0x2b9
+.debug_line     0x0000000000000000      0x45a
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x119 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_line    0x0000000000000119      0x1a0 build/default/production/main.o
+ .debug_line    0x0000000000000119      0x1e6 build/default/production/main.o
+ .debug_line    0x00000000000002ff      0x15b build/default/production/m7SEG.o
 
-.debug_frame    0x0000000000000000       0x64
+.debug_frame    0x0000000000000000       0xc8
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0x64 build/default/production/main.o
+ .debug_frame   0x0000000000000000       0x74 build/default/production/main.o
+ .debug_frame   0x0000000000000074       0x54 build/default/production/m7SEG.o
 
-.debug_str      0x0000000000000000      0x196
+.debug_str      0x0000000000000000      0x1b6
  *(.debug_str)
  .debug_str     0x0000000000000000      0x196 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_str     0x0000000000000196        0x0 build/default/production/main.o
+ .debug_str     0x0000000000000196       0x20 build/default/production/main.o
+ .debug_str     0x00000000000001b6        0x0 build/default/production/m7SEG.o
 
-.debug_loc      0x0000000000000000      0x120
+.debug_loc      0x0000000000000000      0x294
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0x120 build/default/production/main.o
+ .debug_loc     0x0000000000000000      0x1bc build/default/production/main.o
+ .debug_loc     0x00000000000001bc       0xd8 build/default/production/m7SEG.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -532,9 +555,10 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000       0x30
+.debug_ranges   0x0000000000000000       0x60
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x30 build/default/production/main.o
+ .debug_ranges  0x0000000000000000       0x38 build/default/production/main.o
+ .debug_ranges  0x0000000000000038       0x28 build/default/production/m7SEG.o
 
 .debug_macro
  *(.debug_macro)
@@ -547,54 +571,48 @@ LOAD data_init
  .note.gnu.avr.deviceinfo
                 0x0000000000000000       0x3c C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
 
+.text.main      0x000000000000006c       0x58
+ .text.main     0x000000000000006c       0x58 build/default/production/main.o
+                0x000000000000006c                main
+
 .text.set_7SEG_L
-                0x000000000000006c       0x30
+                0x00000000000000c4       0x2a
  .text.set_7SEG_L
-                0x000000000000006c       0x30 build/default/production/main.o
-                0x000000000000006c                set_7SEG_L
+                0x00000000000000c4       0x2a build/default/production/m7SEG.o
+                0x00000000000000c4                set_7SEG_L
 
 .text.set_7SEG_R
-                0x000000000000009c       0x2a
+                0x00000000000000ee       0x2a
  .text.set_7SEG_R
-                0x000000000000009c       0x2a build/default/production/main.o
-                0x000000000000009c                set_7SEG_R
-
-.text.main      0x00000000000000c6       0x2a
- .text.main     0x00000000000000c6       0x2a build/default/production/main.o
-                0x00000000000000c6                main
+                0x00000000000000ee       0x2a build/default/production/m7SEG.o
+                0x00000000000000ee                set_7SEG_R
 
 .text.init_7SEG
-                0x00000000000000f0       0x10
+                0x0000000000000118       0x10
  .text.init_7SEG
-                0x00000000000000f0       0x10 build/default/production/main.o
-                0x00000000000000f0                init_7SEG
+                0x0000000000000118       0x10 build/default/production/m7SEG.o
+                0x0000000000000118                init_7SEG
 
-.text.set_7SEG_DIP
-                0x0000000000000100       0x10
- .text.set_7SEG_DIP
-                0x0000000000000100       0x10 build/default/production/main.o
-                0x0000000000000100                set_7SEG_DIP
-
-.text           0x0000000000000110        0x4
- .text          0x0000000000000110        0x4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
-                0x0000000000000110                __vector_1
-                0x0000000000000110                __vector_12
-                0x0000000000000110                __bad_interrupt
-                0x0000000000000110                __vector_6
-                0x0000000000000110                __vector_3
-                0x0000000000000110                __vector_11
-                0x0000000000000110                __vector_13
-                0x0000000000000110                __vector_17
-                0x0000000000000110                __vector_19
-                0x0000000000000110                __vector_7
-                0x0000000000000110                __vector_5
-                0x0000000000000110                __vector_4
-                0x0000000000000110                __vector_9
-                0x0000000000000110                __vector_2
-                0x0000000000000110                __vector_15
-                0x0000000000000110                __vector_8
-                0x0000000000000110                __vector_14
-                0x0000000000000110                __vector_10
-                0x0000000000000110                __vector_16
-                0x0000000000000110                __vector_18
-                0x0000000000000110                __vector_20
+.text           0x0000000000000128        0x4
+ .text          0x0000000000000128        0x4 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
+                0x0000000000000128                __vector_1
+                0x0000000000000128                __vector_12
+                0x0000000000000128                __bad_interrupt
+                0x0000000000000128                __vector_6
+                0x0000000000000128                __vector_3
+                0x0000000000000128                __vector_11
+                0x0000000000000128                __vector_13
+                0x0000000000000128                __vector_17
+                0x0000000000000128                __vector_19
+                0x0000000000000128                __vector_7
+                0x0000000000000128                __vector_5
+                0x0000000000000128                __vector_4
+                0x0000000000000128                __vector_9
+                0x0000000000000128                __vector_2
+                0x0000000000000128                __vector_15
+                0x0000000000000128                __vector_8
+                0x0000000000000128                __vector_14
+                0x0000000000000128                __vector_10
+                0x0000000000000128                __vector_16
+                0x0000000000000128                __vector_18
+                0x0000000000000128                __vector_20
