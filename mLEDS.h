@@ -18,6 +18,7 @@ void init_LEDs();
 
 void LED0_ON();
 void LED0_OFF();
+void LED0_TOGGLE();
 
 void LED1_ON();
 void LED1_OFF();

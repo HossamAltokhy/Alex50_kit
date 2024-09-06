@@ -14,6 +14,9 @@ void LED0_ON(){
 void LED0_OFF(){
     setPORTC_PIN(LED0, OFF);
 }
+void LED0_TOGGLE(){
+    PORTC ^= (1<<LED0);
+}
 
 void LED1_ON(){
     setPORTC_PIN(LED1, ON);

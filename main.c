@@ -17,119 +17,101 @@
 #include "mKeypad.h"
 #include "m7SEG.h"
 #include <stdlib.h>
+#include <avr/interrupt.h>
+#include "mLCD4.h"
 
-
-
-#define LCD_PORT_DIR       DDRA
-#define LCD_PORT           PORTA
-
-#define LCD_CONTROL_DIR    DDRB
-#define LCD_CONTROL        PORTB
-
-#define LCD_EN             PB3
-#define LCD_RW             PB2
-#define LCD_RS             PB1
-
-// LCD Commands Table 
-
-#define CLEAR                               0x01
-#define RETURN_HOME                         0x02
-#define ENTRY_MODE                          0x06
-#define DISPLAY_ON_CURSOR_ON                0x0E  
-#define DISPLAY_ON_CURSOR_OFF_BLINKING      0x0D
-#define DISPLAY_ON_CURSOR_OFF_NOBLINKING    0x0C
-#define _4BIT_MODE                          0x2C
-
-
-void init_LCD4();
-void LCD4_cmd(char cmd);
-void LCD4_data(char data);
-void LCD4_en();
-void LCD4_clear();
-void LCD4_num(int num);
-void LCD4_str(char* str);
 
 char str[] = "Hello World";
+
+#define INT_MODE_RISING        3
+#define INT_MODE_FALLING       2
+#define INT_MODE_ANY_CHANGE    1
+#define INT_MODE_LOW_LEVEL     0
+
+ISR(INT1_vect) {
+    //char * ptr ;
+    //ptr= (char *)0x35;
+    //    PORTC ^= (1<<LED0);
+    LCD4_data('A');
+    // LED0_TOGGLE();
+}
+
+
+void init_INT0(int INT_MODE);
+void init_INT1(int INT_MODE);
+
+void INT0_selectMODE(int INT_MODE);
+void INT0_enable();
+
+
+void INT1_selectMODE(int INT_MODE);
+void INT1_enable();
+
+void INT2_enable();
+
+void INT0_disable();
+void INT1_disable();
+void INT2_disable();
+
 
 int main(void) {
     /* Replace with your application code */
 
-
+    //init_LEDs();
     init_LCD4();
 
-    LCD4_data('A');
+    init_INT1(INT_MODE_RISING);
+
+    // Enable Global Interrupt
+    sei();
+
     while (1) {
 
+        _delay_ms(5000);
 
     }
 }
 
-void init_LCD4() {
+void init_INT0(int INT_MODE) {
+    INT0_selectMODE(INT_MODE);
+    INT0_enable();
+}
 
-    LCD_PORT_DIR |= 0xF0;
-    LCD_CONTROL_DIR |= (1 << LCD_EN) | (1 << LCD_RS) | (1 << LCD_RW);
+void init_INT1(int INT_MODE) {
+    INT1_selectMODE(INT_MODE);
+    INT1_enable();
+}
 
-    // Write Only
-    LCD_CONTROL &= ~(1 << LCD_RW);
-
-    _delay_ms(1);
-
-    // Commands to initialize LCD
-    LCD4_clear();
-    LCD4_cmd(RETURN_HOME);
-    _delay_ms(2);
-    LCD4_cmd(ENTRY_MODE);
-    _delay_ms(2);
-    LCD4_cmd(DISPLAY_ON_CURSOR_ON);
-    _delay_ms(2);
-    LCD4_cmd(_4BIT_MODE);
-
-    _delay_ms(50);
+void INT0_selectMODE(int INT_MODE) {
+    // MCUCR to select Mode for INT0
+    MCUCR |= INT_MODE;
 
 }
 
-void LCD4_en() {
-    LCD_CONTROL |= (1 << LCD_EN);
-    _delay_us(50);
-    LCD_CONTROL &= ~(1 << LCD_EN);
-}
-
-void LCD4_cmd(char cmd) {
-
-    //Select Command Register
-    LCD_CONTROL &= ~(1 << LCD_RS);
-    LCD_PORT = (LCD_PORT & 0x0F)|(cmd & 0xF0);
-    LCD4_en();
-    LCD_PORT = (LCD_PORT & 0x0F)|(cmd<<4);
-    LCD4_en();
-
-}
-void LCD4_data(char data) {
-
-    //Select Data Register
-    LCD_CONTROL |= (1 << LCD_RS);
-    LCD_PORT = (LCD_PORT & 0x0F)|(data & 0xF0);
-    LCD4_en();
-    LCD_PORT = (LCD_PORT & 0x0F)|(data<<4);
-    LCD4_en();
+void INT1_selectMODE(int INT_MODE) {
+    // MCUCR to select Mode for INT1
+    MCUCR |= INT_MODE << ISC10;
 
 }
 
-void LCD4_str(char* str){
-    for(int i=0; str[i] != '\0'; i++){
-        LCD4_data(str[i]);
-    }
+void INT0_enable() {
+    GICR |= (1 << INT0);
 }
 
-void LCD4_num(int num){
-    char str[11];
-    
-    itoa(num, str, 10);
-    
-    LCD4_str(str);
+void INT1_enable() {
+    GICR |= (1 << INT1);
 }
 
-void LCD4_clear(){
-    LCD4_cmd(CLEAR);
-    _delay_ms(4);
+void INT2_enable() {
+    GICR |= (1 << INT2);
+}
+
+void INT0_disable() {
+    GICR &= ~(1 << INT0);
+}
+void INT1_disable() {
+    GICR &= ~(1 << INT1);
+}
+void INT2_disable() {
+    GICR &= ~(1 << INT2);
 }
