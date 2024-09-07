@@ -19,14 +19,10 @@
 #include <stdlib.h>
 #include <avr/interrupt.h>
 #include "mLCD4.h"
+#include "mINT.h"
 
 
 char str[] = "Hello World";
-
-#define INT_MODE_RISING        3
-#define INT_MODE_FALLING       2
-#define INT_MODE_ANY_CHANGE    1
-#define INT_MODE_LOW_LEVEL     0
 
 ISR(INT1_vect) {
     //char * ptr ;
@@ -37,23 +33,6 @@ ISR(INT1_vect) {
 }
 
 
-void init_INT0(int INT_MODE);
-void init_INT1(int INT_MODE);
-
-void INT0_selectMODE(int INT_MODE);
-void INT0_enable();
-
-
-void INT1_selectMODE(int INT_MODE);
-void INT1_enable();
-
-void INT2_enable();
-
-void INT0_disable();
-void INT1_disable();
-void INT2_disable();
-
-
 int main(void) {
     /* Replace with your application code */
 
@@ -61,7 +40,10 @@ int main(void) {
     init_LCD4();
 
     init_INT1(INT_MODE_RISING);
+    if(GICR &(1<<INT1)){
+       
 
+    }
     // Enable Global Interrupt
     sei();
 
@@ -70,48 +52,4 @@ int main(void) {
         _delay_ms(5000);
 
     }
-}
-
-void init_INT0(int INT_MODE) {
-    INT0_selectMODE(INT_MODE);
-    INT0_enable();
-}
-
-void init_INT1(int INT_MODE) {
-    INT1_selectMODE(INT_MODE);
-    INT1_enable();
-}
-
-void INT0_selectMODE(int INT_MODE) {
-    // MCUCR to select Mode for INT0
-    MCUCR |= INT_MODE;
-
-}
-
-void INT1_selectMODE(int INT_MODE) {
-    // MCUCR to select Mode for INT1
-    MCUCR |= INT_MODE << ISC10;
-
-}
-
-void INT0_enable() {
-    GICR |= (1 << INT0);
-}
-
-void INT1_enable() {
-    GICR |= (1 << INT1);
-}
-
-void INT2_enable() {
-    GICR |= (1 << INT2);
-}
-
-void INT0_disable() {
-    GICR &= ~(1 << INT0);
-}
-void INT1_disable() {
-    GICR &= ~(1 << INT1);
-}
-void INT2_disable() {
-    GICR &= ~(1 << INT2);
 }
