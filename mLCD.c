@@ -23,7 +23,7 @@ void init_LCD4() {
     _delay_ms(2);
     LCD4_cmd(ENTRY_MODE);
     _delay_ms(2);
-    LCD4_cmd(DISPLAY_ON_CURSOR_ON);
+    LCD4_cmd(DISPLAY_ON_CURSOR_OFF_NOBLINKING);
     _delay_ms(2);
     LCD4_cmd(_4BIT_MODE);
 
@@ -77,3 +77,14 @@ void LCD4_clear(){
     _delay_ms(4);
 }
 
+void LCD4_goto(int row, int coln){
+    // 0xc0
+    if(row){
+        LCD4_cmd(0xC0|coln);
+    }
+    else{
+        LCD4_cmd(0x80|coln);
+    // 0x80
+    }
+    
+}

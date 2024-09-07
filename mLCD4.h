@@ -38,7 +38,7 @@ void LCD4_en();
 void LCD4_clear();
 void LCD4_num(int num);
 void LCD4_str(char* str);
-
+void LCD4_goto(int row, int coln);
 
 #endif	/* MLCD4_H */
 
