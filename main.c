@@ -23,44 +23,81 @@
 #include "mADC.h"
 
 
-//ISR(ADC_vect){
-//    // Read ADC DATA REGISTER 
-//        LCD4_clear();
-//        LCD4_num(ADCW * ADC_step);
-//        LCD4_data('m');
-//        LCD4_data('V');
-//}
+#define TIMER0_NORMAL   0
+#define TIMER0_CTC      1
+#define TIMER0_PWM      2
+#define TIMER0_FPWM     3
+
+
+
+#define TIMER0_OFF          0
+#define TIMER0_No_PRE       1
+#define TIMER0_PRE_8        2
+#define TIMER0_PRE_64       3
+#define TIMER0_PRE_256      4
+#define TIMER0_PRE_1024     5
+#define TIMER0_EDGE_FALLING 6
+#define TIMER0_EDGE_RISING  7
+
+
+void init_Timer0(int mode, int Prescalar);
+
+void Timer0_OVF_Enable();
+
+
+ISR(TIMER0_OVF_vect){
+    // 
+    static int counter0 = 0;
+    counter0++;
+    if(counter0 == 62){
+        // Every One Second
+        PORTA ^= 0xFF;
+        counter0 =0;
+    }
+  
+}
 
 int main(void) {
     /* Replace with your application code */
 
-    init_LCD4();
-    init_ADC(ADC_CH_1, ADC_Vref_AREF, ADC_PS_128);
-
-    int data1 = 0;
+    setPORTA_DIR(OUTPUT);
+    
+    init_Timer0(TIMER0_NORMAL, TIMER0_PRE_1024);
+    Timer0_OVF_Enable();
+    
+    sei();
     while (1) {
 
         
-        ADC_SC();
-        ADC_wait();
-        data1 = ADC_read() * ADC_step;
-
-        
-
       
-        
-        
-        
-        //Display
-        LCD4_clear();
-        //LCD4_goto(0, 6);
-        LCD4_num(data1);
-        LCD4_data('m');
-        LCD4_data('V');
-        _delay_ms(100);
-
-        //        
-        //        LCD4_clear();
-
     }
+}
+
+// Reg &= ~(1<<num);
+
+void init_Timer0(int mode, int Prescalar){
+    switch(mode){
+        case TIMER0_NORMAL:
+            TCCR0 &= ~((1<<WGM01)|(1<<WGM00));
+            break;
+        case TIMER0_CTC:
+            TCCR0 &= ~(1<<WGM00);
+            TCCR0 |= (1<<WGM01);
+            break;
+        case TIMER0_PWM:
+            TCCR0 &= ~(1<<WGM01);
+            TCCR0 |= (1<<WGM00);
+            break;
+        case TIMER0_FPWM:
+            TCCR0 |= ((1<<WGM01)|(1<<WGM00));
+            break;
+    }
+    
+    TCCR0 |= Prescalar;
+    
+}
+
+
+void Timer0_OVF_Enable(){
+    TIMSK |= (1<<TOIE0);
 }
