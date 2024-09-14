@@ -43,16 +43,21 @@
 void init_Timer0(int mode, int Prescalar);
 
 void Timer0_OVF_Enable();
+void Timer0_OC_Enable();
 
-
-ISR(TIMER0_OVF_vect){
+ISR(TIMER0_COMP_vect){
     // 
     static int counter0 = 0;
+    static int second = 0;
     counter0++;
-    if(counter0 == 62){
+    if(counter0 == 156){
         // Every One Second
-        PORTA ^= 0xFF;
+        if(second ==60){
+            second = 0;
+        }
+        
         counter0 =0;
+        
     }
   
 }
@@ -60,15 +65,28 @@ ISR(TIMER0_OVF_vect){
 int main(void) {
     /* Replace with your application code */
 
-    setPORTA_DIR(OUTPUT);
+    init_BUTTONs();
+    init_LCD4();
+    OCR0 = 100;
+    setPORTB_PIN_DIR(PB3, OUTPUT);
+    TCCR0 |= (1<<COM00);
+    init_Timer0(TIMER0_CTC, TIMER0_PRE_1024);
     
-    init_Timer0(TIMER0_NORMAL, TIMER0_PRE_1024);
-    Timer0_OVF_Enable();
+    Timer0_OC_Enable();
     
     sei();
     while (1) {
 
-        
+        if(isPressed(BTN2)){
+            OCR0 += 10;
+            _delay_ms(250);
+        }
+        if(isPressed(BTN1)){
+            OCR0 -= 10;
+            _delay_ms(250);
+        }
+        LCD4_clear();
+        LCD4_num(OCR0);
       
     }
 }
@@ -100,4 +118,7 @@ void init_Timer0(int mode, int Prescalar){
 
 void Timer0_OVF_Enable(){
     TIMSK |= (1<<TOIE0);
+}
+void Timer0_OC_Enable(){
+    TIMSK |= (1<<OCIE0);
 }
