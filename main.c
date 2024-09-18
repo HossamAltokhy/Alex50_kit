@@ -69,8 +69,8 @@ int main(void) {
     init_LCD4();
     OCR0 = 100;
     setPORTB_PIN_DIR(PB3, OUTPUT);
-    TCCR0 |= (1<<COM00);
-    init_Timer0(TIMER0_CTC, TIMER0_PRE_1024);
+    TCCR0 |= (1<<COM01)|(1<<COM00);
+    init_Timer0(TIMER0_FPWM, TIMER0_PRE_1024);
     
     Timer0_OC_Enable();
     
