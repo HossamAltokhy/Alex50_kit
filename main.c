@@ -21,29 +21,8 @@
 #include "mLCD4.h"
 #include "mINT.h"
 #include "mADC.h"
+#include "mTimer.h"
 
-
-#define TIMER0_NORMAL   0
-#define TIMER0_CTC      1
-#define TIMER0_PWM      2
-#define TIMER0_FPWM     3
-
-
-
-#define TIMER0_OFF          0
-#define TIMER0_No_PRE       1
-#define TIMER0_PRE_8        2
-#define TIMER0_PRE_64       3
-#define TIMER0_PRE_256      4
-#define TIMER0_PRE_1024     5
-#define TIMER0_EDGE_FALLING 6
-#define TIMER0_EDGE_RISING  7
-
-
-void init_Timer0(int mode, int Prescalar);
-
-void Timer0_OVF_Enable();
-void Timer0_OC_Enable();
 
 ISR(TIMER0_COMP_vect){
     // 
@@ -89,36 +68,5 @@ int main(void) {
         LCD4_num(OCR0);
       
     }
-}
-
-// Reg &= ~(1<<num);
-
-void init_Timer0(int mode, int Prescalar){
-    switch(mode){
-        case TIMER0_NORMAL:
-            TCCR0 &= ~((1<<WGM01)|(1<<WGM00));
-            break;
-        case TIMER0_CTC:
-            TCCR0 &= ~(1<<WGM00);
-            TCCR0 |= (1<<WGM01);
-            break;
-        case TIMER0_PWM:
-            TCCR0 &= ~(1<<WGM01);
-            TCCR0 |= (1<<WGM00);
-            break;
-        case TIMER0_FPWM:
-            TCCR0 |= ((1<<WGM01)|(1<<WGM00));
-            break;
-    }
     
-    TCCR0 |= Prescalar;
-    
-}
-
-
-void Timer0_OVF_Enable(){
-    TIMSK |= (1<<TOIE0);
-}
-void Timer0_OC_Enable(){
-    TIMSK |= (1<<OCIE0);
 }
