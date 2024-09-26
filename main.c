@@ -24,49 +24,86 @@
 #include "mTimer.h"
 
 
-ISR(TIMER0_COMP_vect){
-    // 
-    static int counter0 = 0;
-    static int second = 0;
-    counter0++;
-    if(counter0 == 156){
-        // Every One Second
-        if(second ==60){
-            second = 0;
-        }
-        
-        counter0 =0;
-        
+#define BR_9600   9600
+#define BR_19_2K  19200
+#define BR_115_2K 115200
+
+void init_UART(int BAUDRATE);
+void UART_send(char data);
+void UART_send_str(char* str);
+char UART_receive();
+void UART_send_num(int num);
+char str1[] = "\rLED ON";
+char str2[] = "\rLED OFF";
+char flag = 0;
+
+ISR(USART_RXC_vect) {
+    char data = UDR;
+
+    switch (data) {
+        case 'A':
+            LED0_ON();
+            UART_send_str(str1);
+            flag = 1;
+            break;
+        case 'B':
+            LED0_OFF();
+            UART_send_str(str2);
+            flag = 0;
+            break;
     }
-  
 }
 
 int main(void) {
     /* Replace with your application code */
 
-    init_BUTTONs();
-    init_LCD4();
-    OCR0 = 100;
-    setPORTB_PIN_DIR(PB3, OUTPUT);
-    TCCR0 |= (1<<COM01)|(1<<COM00);
-    init_Timer0(TIMER0_FPWM, TIMER0_PRE_1024);
-    
-    Timer0_OC_Enable();
-    
+
+
+
+    init_LEDs();
+    init_UART(BR_9600);
+
     sei();
     while (1) {
 
-        if(isPressed(BTN2)){
-            OCR0 += 10;
-            _delay_ms(250);
-        }
-        if(isPressed(BTN1)){
-            OCR0 -= 10;
-            _delay_ms(250);
-        }
-        LCD4_clear();
-        LCD4_num(OCR0);
-      
+        
+        UART_send('A');
+        _delay_ms(200);
+
+
     }
+
+}
+
+void init_UART(int BAUDRATE) {
+    // Set Baud Rate
+    short result = (F_CPU / BAUDRATE / 16.0) - 1;
+    //    short result = (F_CPU/(float)(BAUDRATE*16.0))-1;
+    UBRRL = (char) result;
+    UBRRH = result >> 8;
+    // Enable Tx, Rx
+    UCSRB |= (1 << TXEN) | (1 << RXEN);
+    UCSRB |= (1 << RXCIE);
+}
+
+void UART_send(char data) {
+    while (!(UCSRA & (1 << UDRE)));
+    UDR = data;
+}
+
+void UART_send_str(char* str) {
+    for (int i = 0; str[i] != '\0'; i++) {
+        UART_send(str[i]);
+    }
+}
+void UART_send_num(int num){
+    char str[11];
+    itoa(num, str, 10);
+    UART_send_str(str);
     
+}
+
+char UART_receive() {
+    while (!(UCSRA & (1 << RXC)));
+    return UDR;
 }

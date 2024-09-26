@@ -16,7 +16,7 @@
 #define LCD_CONTROL_DIR    DDRB
 #define LCD_CONTROL        PORTB
 
-#define LCD_EN             PB4
+#define LCD_EN             PB3
 #define LCD_RW             PB2
 #define LCD_RS             PB1
 
