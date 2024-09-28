@@ -46,8 +46,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/default/production/main.o
  .data          0x0000000000000000        0x0 build/default/production/main.o
  .bss           0x0000000000000000        0x0 build/default/production/main.o
- .text.SPI_read
-                0x0000000000000000        0x8 build/default/production/main.o
  .text          0x0000000000000000        0x0 build/default/production/mDIO.o
  .data          0x0000000000000000        0x0 build/default/production/mDIO.o
  .bss           0x0000000000000000        0x0 build/default/production/mDIO.o
@@ -363,6 +361,14 @@ Discarded input sections
  .debug_str     0x0000000000000000        0xe build/default/production/mUART.o
  .comment       0x0000000000000000       0x30 build/default/production/mUART.o
  .debug_frame   0x0000000000000000       0x80 build/default/production/mUART.o
+ .text          0x0000000000000000        0x0 build/default/production/mSPI.o
+ .data          0x0000000000000000        0x0 build/default/production/mSPI.o
+ .bss           0x0000000000000000        0x0 build/default/production/mSPI.o
+ .text.SPI_read
+                0x0000000000000000        0x8 build/default/production/mSPI.o
+ .text          0x0000000000000000        0x0 build/default/production/EEPROM_25LC010A.o
+ .data          0x0000000000000000        0x0 build/default/production/EEPROM_25LC010A.o
+ .bss           0x0000000000000000        0x0 build/default/production/EEPROM_25LC010A.o
  .text          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
  .data          0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
  .bss           0x0000000000000000        0x0 c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a(addsf3.o)
@@ -582,6 +588,8 @@ LOAD build/default/production/mINT.o
 LOAD build/default/production/mADC.o
 LOAD build/default/production/mTimer.o
 LOAD build/default/production/mUART.o
+LOAD build/default/production/mSPI.o
+LOAD build/default/production/EEPROM_25LC010A.o
 START GROUP
 LOAD c:/program files/microchip/xc8/v2.32/avr/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5/memx-const\libm.a
 END GROUP
@@ -835,6 +843,8 @@ END GROUP
  .comment       0x0000000000000000       0x2f build/default/production/main.o
                                          0x30 (size before relaxing)
  .comment       0x000000000000002f       0x30 build/default/production/mDIO.o
+ .comment       0x000000000000002f       0x30 build/default/production/mSPI.o
+ .comment       0x000000000000002f       0x30 build/default/production/EEPROM_25LC010A.o
 
 .stack.descriptors.hdr
                 0x0000000000000000        0xe
@@ -856,49 +866,65 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x0000000000000000      0x130
+.debug_aranges  0x0000000000000000      0x160
  *(.debug_aranges)
  .debug_aranges
-                0x0000000000000000       0x58 build/default/production/main.o
+                0x0000000000000000       0x20 build/default/production/main.o
  .debug_aranges
-                0x0000000000000058       0xd8 build/default/production/mDIO.o
+                0x0000000000000020       0xd8 build/default/production/mDIO.o
+ .debug_aranges
+                0x00000000000000f8       0x30 build/default/production/mSPI.o
+ .debug_aranges
+                0x0000000000000128       0x38 build/default/production/EEPROM_25LC010A.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000     0x1400
+.debug_info     0x0000000000000000     0x1981
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000      0x4e6 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_info    0x00000000000004e6      0x828 build/default/production/main.o
- .debug_info    0x0000000000000d0e      0x6f2 build/default/production/mDIO.o
+ .debug_info    0x00000000000004e6      0x43b build/default/production/main.o
+ .debug_info    0x0000000000000921      0x6f2 build/default/production/mDIO.o
+ .debug_info    0x0000000000001013      0x424 build/default/production/mSPI.o
+ .debug_info    0x0000000000001437      0x54a build/default/production/EEPROM_25LC010A.o
 
-.debug_abbrev   0x0000000000000000      0x6d1
+.debug_abbrev   0x0000000000000000      0x892
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000      0x4a3 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_abbrev  0x00000000000004a3      0x194 build/default/production/main.o
- .debug_abbrev  0x0000000000000637       0x9a build/default/production/mDIO.o
+ .debug_abbrev  0x00000000000004a3      0x110 build/default/production/main.o
+ .debug_abbrev  0x00000000000005b3       0x9a build/default/production/mDIO.o
+ .debug_abbrev  0x000000000000064d      0x11c build/default/production/mSPI.o
+ .debug_abbrev  0x0000000000000769      0x129 build/default/production/EEPROM_25LC010A.o
 
-.debug_line     0x0000000000000000      0x748
+.debug_line     0x0000000000000000      0x8dc
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x0000000000000000      0x119 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_line    0x0000000000000119      0x2a3 build/default/production/main.o
- .debug_line    0x00000000000003bc      0x38c build/default/production/mDIO.o
+ .debug_line    0x0000000000000119      0x145 build/default/production/main.o
+ .debug_line    0x000000000000025e      0x38c build/default/production/mDIO.o
+ .debug_line    0x00000000000005ea      0x15e build/default/production/mSPI.o
+ .debug_line    0x0000000000000748      0x194 build/default/production/EEPROM_25LC010A.o
 
-.debug_frame    0x0000000000000000      0x248
+.debug_frame    0x0000000000000000      0x270
  *(.debug_frame)
- .debug_frame   0x0000000000000000       0xb4 build/default/production/main.o
- .debug_frame   0x00000000000000b4      0x194 build/default/production/mDIO.o
+ .debug_frame   0x0000000000000000       0x24 build/default/production/main.o
+ .debug_frame   0x0000000000000024      0x194 build/default/production/mDIO.o
+ .debug_frame   0x00000000000001b8       0x50 build/default/production/mSPI.o
+ .debug_frame   0x0000000000000208       0x68 build/default/production/EEPROM_25LC010A.o
 
-.debug_str      0x0000000000000000      0x1df
+.debug_str      0x0000000000000000      0x245
  *(.debug_str)
  .debug_str     0x0000000000000000      0x196 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/ATmega_DFP/2.3.126/xc8/avr/lib/avr5/memx-const/crtatmega32a.o
- .debug_str     0x0000000000000196       0x2b build/default/production/main.o
- .debug_str     0x00000000000001c1       0x1e build/default/production/mDIO.o
+ .debug_str     0x0000000000000196       0x69 build/default/production/main.o
+ .debug_str     0x00000000000001ff       0x1e build/default/production/mDIO.o
+ .debug_str     0x000000000000021d       0x11 build/default/production/mSPI.o
+ .debug_str     0x000000000000022e       0x17 build/default/production/EEPROM_25LC010A.o
 
 .debug_loc      0x0000000000000000      0x8f8
  *(.debug_loc)
- .debug_loc     0x0000000000000000      0x348 build/default/production/main.o
- .debug_loc     0x0000000000000348      0x5b0 build/default/production/mDIO.o
+ .debug_loc     0x0000000000000000       0xd8 build/default/production/main.o
+ .debug_loc     0x00000000000000d8      0x5b0 build/default/production/mDIO.o
+ .debug_loc     0x0000000000000688      0x122 build/default/production/mSPI.o
+ .debug_loc     0x00000000000007aa      0x14e build/default/production/EEPROM_25LC010A.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -918,10 +944,12 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x0000000000000000      0x110
+.debug_ranges   0x0000000000000000      0x120
  *(.debug_ranges)
- .debug_ranges  0x0000000000000000       0x48 build/default/production/main.o
- .debug_ranges  0x0000000000000048       0xc8 build/default/production/mDIO.o
+ .debug_ranges  0x0000000000000000       0x10 build/default/production/main.o
+ .debug_ranges  0x0000000000000010       0xc8 build/default/production/mDIO.o
+ .debug_ranges  0x00000000000000d8       0x20 build/default/production/mSPI.o
+ .debug_ranges  0x00000000000000f8       0x28 build/default/production/EEPROM_25LC010A.o
 
 .debug_macro
  *(.debug_macro)
@@ -936,7 +964,7 @@ LOAD data_init
 
 .text.init_SPI  0x000000000000006c       0x7e
  .text.init_SPI
-                0x000000000000006c       0x7e build/default/production/main.o
+                0x000000000000006c       0x7e build/default/production/mSPI.o
                 0x000000000000006c                init_SPI
 
 .text.main      0x00000000000000ea       0x56
@@ -958,25 +986,25 @@ LOAD data_init
 .text.EEPROM_25LC010A_write
                 0x00000000000001c4       0x38
  .text.EEPROM_25LC010A_write
-                0x00000000000001c4       0x38 build/default/production/main.o
+                0x00000000000001c4       0x38 build/default/production/EEPROM_25LC010A.o
                 0x00000000000001c4                EEPROM_25LC010A_write
 
 .text.EEPROM_25LC010A_read
                 0x00000000000001fc       0x28
  .text.EEPROM_25LC010A_read
-                0x00000000000001fc       0x28 build/default/production/main.o
+                0x00000000000001fc       0x28 build/default/production/EEPROM_25LC010A.o
                 0x00000000000001fc                EEPROM_25LC010A_read
 
 .text.EEPROM_25LC010A_CS
                 0x0000000000000224       0x24
  .text.EEPROM_25LC010A_CS
-                0x0000000000000224       0x24 build/default/production/main.o
+                0x0000000000000224       0x24 build/default/production/EEPROM_25LC010A.o
                 0x0000000000000224                EEPROM_25LC010A_CS
 
 .text.EEPROM_25LC010A_WREN
                 0x0000000000000248       0x20
  .text.EEPROM_25LC010A_WREN
-                0x0000000000000248       0x20 build/default/production/main.o
+                0x0000000000000248       0x20 build/default/production/EEPROM_25LC010A.o
                 0x0000000000000248                EEPROM_25LC010A_WREN
 
 .text.setPORTA_DIR
@@ -988,7 +1016,7 @@ LOAD data_init
 .text.SPI_write
                 0x000000000000027a        0x8
  .text.SPI_write
-                0x000000000000027a        0x8 build/default/production/main.o
+                0x000000000000027a        0x8 build/default/production/mSPI.o
                 0x000000000000027a                SPI_write
 
 .text           0x0000000000000282        0x4
