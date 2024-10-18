@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c m7SEG.c mLCD8.c mLCD.c mINT.c mADC.c mTimer.c mUART.c mSPI.c EEPROM_25LC010A.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c m7SEG.c mLCD8.c mLCD.c mINT.c mADC.c mTimer.c mUART.c mSPI.c EEPROM_25LC010A.c mTWI.c EEPROM_24C16_I2C.c RTOS/croutine.c RTOS/event_groups.c RTOS/heap_4.c RTOS/list.c RTOS/port.c RTOS/queue.c RTOS/stream_buffer.c RTOS/tasks.c RTOS/timers.c mEEPROM.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o ${OBJECTDIR}/m7SEG.o ${OBJECTDIR}/mLCD8.o ${OBJECTDIR}/mLCD.o ${OBJECTDIR}/mINT.o ${OBJECTDIR}/mADC.o ${OBJECTDIR}/mTimer.o ${OBJECTDIR}/mUART.o ${OBJECTDIR}/mSPI.o ${OBJECTDIR}/EEPROM_25LC010A.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/mDIO.o.d ${OBJECTDIR}/mLEDS.o.d ${OBJECTDIR}/mBUZZ.o.d ${OBJECTDIR}/mRELAY.o.d ${OBJECTDIR}/mBUTTON.o.d ${OBJECTDIR}/mKeypad.o.d ${OBJECTDIR}/m7SEG.o.d ${OBJECTDIR}/mLCD8.o.d ${OBJECTDIR}/mLCD.o.d ${OBJECTDIR}/mINT.o.d ${OBJECTDIR}/mADC.o.d ${OBJECTDIR}/mTimer.o.d ${OBJECTDIR}/mUART.o.d ${OBJECTDIR}/mSPI.o.d ${OBJECTDIR}/EEPROM_25LC010A.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o ${OBJECTDIR}/m7SEG.o ${OBJECTDIR}/mLCD8.o ${OBJECTDIR}/mLCD.o ${OBJECTDIR}/mINT.o ${OBJECTDIR}/mADC.o ${OBJECTDIR}/mTimer.o ${OBJECTDIR}/mUART.o ${OBJECTDIR}/mSPI.o ${OBJECTDIR}/EEPROM_25LC010A.o ${OBJECTDIR}/mTWI.o ${OBJECTDIR}/EEPROM_24C16_I2C.o ${OBJECTDIR}/RTOS/croutine.o ${OBJECTDIR}/RTOS/event_groups.o ${OBJECTDIR}/RTOS/heap_4.o ${OBJECTDIR}/RTOS/list.o ${OBJECTDIR}/RTOS/port.o ${OBJECTDIR}/RTOS/queue.o ${OBJECTDIR}/RTOS/stream_buffer.o ${OBJECTDIR}/RTOS/tasks.o ${OBJECTDIR}/RTOS/timers.o ${OBJECTDIR}/mEEPROM.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/mDIO.o.d ${OBJECTDIR}/mLEDS.o.d ${OBJECTDIR}/mBUZZ.o.d ${OBJECTDIR}/mRELAY.o.d ${OBJECTDIR}/mBUTTON.o.d ${OBJECTDIR}/mKeypad.o.d ${OBJECTDIR}/m7SEG.o.d ${OBJECTDIR}/mLCD8.o.d ${OBJECTDIR}/mLCD.o.d ${OBJECTDIR}/mINT.o.d ${OBJECTDIR}/mADC.o.d ${OBJECTDIR}/mTimer.o.d ${OBJECTDIR}/mUART.o.d ${OBJECTDIR}/mSPI.o.d ${OBJECTDIR}/EEPROM_25LC010A.o.d ${OBJECTDIR}/mTWI.o.d ${OBJECTDIR}/EEPROM_24C16_I2C.o.d ${OBJECTDIR}/RTOS/croutine.o.d ${OBJECTDIR}/RTOS/event_groups.o.d ${OBJECTDIR}/RTOS/heap_4.o.d ${OBJECTDIR}/RTOS/list.o.d ${OBJECTDIR}/RTOS/port.o.d ${OBJECTDIR}/RTOS/queue.o.d ${OBJECTDIR}/RTOS/stream_buffer.o.d ${OBJECTDIR}/RTOS/tasks.o.d ${OBJECTDIR}/RTOS/timers.o.d ${OBJECTDIR}/mEEPROM.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o ${OBJECTDIR}/m7SEG.o ${OBJECTDIR}/mLCD8.o ${OBJECTDIR}/mLCD.o ${OBJECTDIR}/mINT.o ${OBJECTDIR}/mADC.o ${OBJECTDIR}/mTimer.o ${OBJECTDIR}/mUART.o ${OBJECTDIR}/mSPI.o ${OBJECTDIR}/EEPROM_25LC010A.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/mDIO.o ${OBJECTDIR}/mLEDS.o ${OBJECTDIR}/mBUZZ.o ${OBJECTDIR}/mRELAY.o ${OBJECTDIR}/mBUTTON.o ${OBJECTDIR}/mKeypad.o ${OBJECTDIR}/m7SEG.o ${OBJECTDIR}/mLCD8.o ${OBJECTDIR}/mLCD.o ${OBJECTDIR}/mINT.o ${OBJECTDIR}/mADC.o ${OBJECTDIR}/mTimer.o ${OBJECTDIR}/mUART.o ${OBJECTDIR}/mSPI.o ${OBJECTDIR}/EEPROM_25LC010A.o ${OBJECTDIR}/mTWI.o ${OBJECTDIR}/EEPROM_24C16_I2C.o ${OBJECTDIR}/RTOS/croutine.o ${OBJECTDIR}/RTOS/event_groups.o ${OBJECTDIR}/RTOS/heap_4.o ${OBJECTDIR}/RTOS/list.o ${OBJECTDIR}/RTOS/port.o ${OBJECTDIR}/RTOS/queue.o ${OBJECTDIR}/RTOS/stream_buffer.o ${OBJECTDIR}/RTOS/tasks.o ${OBJECTDIR}/RTOS/timers.o ${OBJECTDIR}/mEEPROM.o
 
 # Source Files
-SOURCEFILES=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c m7SEG.c mLCD8.c mLCD.c mINT.c mADC.c mTimer.c mUART.c mSPI.c EEPROM_25LC010A.c
+SOURCEFILES=main.c mDIO.c mLEDS.c mBUZZ.c mRELAY.c mBUTTON.c mKeypad.c m7SEG.c mLCD8.c mLCD.c mINT.c mADC.c mTimer.c mUART.c mSPI.c EEPROM_25LC010A.c mTWI.c EEPROM_24C16_I2C.c RTOS/croutine.c RTOS/event_groups.c RTOS/heap_4.c RTOS/list.c RTOS/port.c RTOS/queue.c RTOS/stream_buffer.c RTOS/tasks.c RTOS/timers.c mEEPROM.c
 
 
 
@@ -190,6 +190,78 @@ ${OBJECTDIR}/EEPROM_25LC010A.o: EEPROM_25LC010A.c  .generated_files/flags/defaul
 	@${RM} ${OBJECTDIR}/EEPROM_25LC010A.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/EEPROM_25LC010A.o.d" -MT "${OBJECTDIR}/EEPROM_25LC010A.o.d" -MT ${OBJECTDIR}/EEPROM_25LC010A.o -o ${OBJECTDIR}/EEPROM_25LC010A.o EEPROM_25LC010A.c 
 	
+${OBJECTDIR}/mTWI.o: mTWI.c  .generated_files/flags/default/b2eecd741b2f9692a27a53a219ecc92ca70b1be1 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mTWI.o.d 
+	@${RM} ${OBJECTDIR}/mTWI.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mTWI.o.d" -MT "${OBJECTDIR}/mTWI.o.d" -MT ${OBJECTDIR}/mTWI.o -o ${OBJECTDIR}/mTWI.o mTWI.c 
+	
+${OBJECTDIR}/EEPROM_24C16_I2C.o: EEPROM_24C16_I2C.c  .generated_files/flags/default/6d47d28ebc11e522266ac8888f3a8f6136548e89 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM_24C16_I2C.o.d 
+	@${RM} ${OBJECTDIR}/EEPROM_24C16_I2C.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/EEPROM_24C16_I2C.o.d" -MT "${OBJECTDIR}/EEPROM_24C16_I2C.o.d" -MT ${OBJECTDIR}/EEPROM_24C16_I2C.o -o ${OBJECTDIR}/EEPROM_24C16_I2C.o EEPROM_24C16_I2C.c 
+	
+${OBJECTDIR}/RTOS/croutine.o: RTOS/croutine.c  .generated_files/flags/default/c6ab7bffbee29736102730c810197bda8f330f56 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/croutine.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/croutine.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/croutine.o.d" -MT "${OBJECTDIR}/RTOS/croutine.o.d" -MT ${OBJECTDIR}/RTOS/croutine.o -o ${OBJECTDIR}/RTOS/croutine.o RTOS/croutine.c 
+	
+${OBJECTDIR}/RTOS/event_groups.o: RTOS/event_groups.c  .generated_files/flags/default/c76215f2f79384605fe6032e1a9ac6d60c1bca84 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/event_groups.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/event_groups.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/event_groups.o.d" -MT "${OBJECTDIR}/RTOS/event_groups.o.d" -MT ${OBJECTDIR}/RTOS/event_groups.o -o ${OBJECTDIR}/RTOS/event_groups.o RTOS/event_groups.c 
+	
+${OBJECTDIR}/RTOS/heap_4.o: RTOS/heap_4.c  .generated_files/flags/default/1ad775c283d67fdf050c51b7820da618b78e88b3 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/heap_4.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/heap_4.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/heap_4.o.d" -MT "${OBJECTDIR}/RTOS/heap_4.o.d" -MT ${OBJECTDIR}/RTOS/heap_4.o -o ${OBJECTDIR}/RTOS/heap_4.o RTOS/heap_4.c 
+	
+${OBJECTDIR}/RTOS/list.o: RTOS/list.c  .generated_files/flags/default/2061cfc1a2ac321204a50f5a1f46f7d84a635308 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/list.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/list.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/list.o.d" -MT "${OBJECTDIR}/RTOS/list.o.d" -MT ${OBJECTDIR}/RTOS/list.o -o ${OBJECTDIR}/RTOS/list.o RTOS/list.c 
+	
+${OBJECTDIR}/RTOS/port.o: RTOS/port.c  .generated_files/flags/default/bb3fead9e767b490f50b63c2bf1742037ba0a34e .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/port.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/port.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/port.o.d" -MT "${OBJECTDIR}/RTOS/port.o.d" -MT ${OBJECTDIR}/RTOS/port.o -o ${OBJECTDIR}/RTOS/port.o RTOS/port.c 
+	
+${OBJECTDIR}/RTOS/queue.o: RTOS/queue.c  .generated_files/flags/default/7e3bb14f9c9194a75de6872409a588266f8bccf4 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/queue.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/queue.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/queue.o.d" -MT "${OBJECTDIR}/RTOS/queue.o.d" -MT ${OBJECTDIR}/RTOS/queue.o -o ${OBJECTDIR}/RTOS/queue.o RTOS/queue.c 
+	
+${OBJECTDIR}/RTOS/stream_buffer.o: RTOS/stream_buffer.c  .generated_files/flags/default/dc656b6eab49ac63fb3f7dd019737f74ebc718d8 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/stream_buffer.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/stream_buffer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/stream_buffer.o.d" -MT "${OBJECTDIR}/RTOS/stream_buffer.o.d" -MT ${OBJECTDIR}/RTOS/stream_buffer.o -o ${OBJECTDIR}/RTOS/stream_buffer.o RTOS/stream_buffer.c 
+	
+${OBJECTDIR}/RTOS/tasks.o: RTOS/tasks.c  .generated_files/flags/default/da37b9b807186d8a2fa3b6a09416afbb01b3ffd8 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/tasks.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/tasks.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/tasks.o.d" -MT "${OBJECTDIR}/RTOS/tasks.o.d" -MT ${OBJECTDIR}/RTOS/tasks.o -o ${OBJECTDIR}/RTOS/tasks.o RTOS/tasks.c 
+	
+${OBJECTDIR}/RTOS/timers.o: RTOS/timers.c  .generated_files/flags/default/8993843a575d79ff6292a19383926c0092821411 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/timers.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/timers.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/timers.o.d" -MT "${OBJECTDIR}/RTOS/timers.o.d" -MT ${OBJECTDIR}/RTOS/timers.o -o ${OBJECTDIR}/RTOS/timers.o RTOS/timers.c 
+	
+${OBJECTDIR}/mEEPROM.o: mEEPROM.c  .generated_files/flags/default/ce293a306635b8a4496ac0410188cec707b8d12c .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mEEPROM.o.d 
+	@${RM} ${OBJECTDIR}/mEEPROM.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1 -g -DDEBUG  -gdwarf-2  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mEEPROM.o.d" -MT "${OBJECTDIR}/mEEPROM.o.d" -MT ${OBJECTDIR}/mEEPROM.o -o ${OBJECTDIR}/mEEPROM.o mEEPROM.c 
+	
 else
 ${OBJECTDIR}/main.o: main.c  .generated_files/flags/default/7f65fd50876231cac1eba295270a4f7a5dacbb74 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
 	@${MKDIR} "${OBJECTDIR}" 
@@ -286,6 +358,78 @@ ${OBJECTDIR}/EEPROM_25LC010A.o: EEPROM_25LC010A.c  .generated_files/flags/defaul
 	@${RM} ${OBJECTDIR}/EEPROM_25LC010A.o.d 
 	@${RM} ${OBJECTDIR}/EEPROM_25LC010A.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/EEPROM_25LC010A.o.d" -MT "${OBJECTDIR}/EEPROM_25LC010A.o.d" -MT ${OBJECTDIR}/EEPROM_25LC010A.o -o ${OBJECTDIR}/EEPROM_25LC010A.o EEPROM_25LC010A.c 
+	
+${OBJECTDIR}/mTWI.o: mTWI.c  .generated_files/flags/default/40368caa9c335769fc34c351ae54c2702d1f43ef .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mTWI.o.d 
+	@${RM} ${OBJECTDIR}/mTWI.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mTWI.o.d" -MT "${OBJECTDIR}/mTWI.o.d" -MT ${OBJECTDIR}/mTWI.o -o ${OBJECTDIR}/mTWI.o mTWI.c 
+	
+${OBJECTDIR}/EEPROM_24C16_I2C.o: EEPROM_24C16_I2C.c  .generated_files/flags/default/9e023a792f3662e486b9bdf459a8ece7f329bf82 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/EEPROM_24C16_I2C.o.d 
+	@${RM} ${OBJECTDIR}/EEPROM_24C16_I2C.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/EEPROM_24C16_I2C.o.d" -MT "${OBJECTDIR}/EEPROM_24C16_I2C.o.d" -MT ${OBJECTDIR}/EEPROM_24C16_I2C.o -o ${OBJECTDIR}/EEPROM_24C16_I2C.o EEPROM_24C16_I2C.c 
+	
+${OBJECTDIR}/RTOS/croutine.o: RTOS/croutine.c  .generated_files/flags/default/c3261448ed807d345b9f79c93aa6742a6c79acc6 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/croutine.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/croutine.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/croutine.o.d" -MT "${OBJECTDIR}/RTOS/croutine.o.d" -MT ${OBJECTDIR}/RTOS/croutine.o -o ${OBJECTDIR}/RTOS/croutine.o RTOS/croutine.c 
+	
+${OBJECTDIR}/RTOS/event_groups.o: RTOS/event_groups.c  .generated_files/flags/default/32d4d5f91720546d2a7a0aee56aef70e51b2dfc5 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/event_groups.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/event_groups.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/event_groups.o.d" -MT "${OBJECTDIR}/RTOS/event_groups.o.d" -MT ${OBJECTDIR}/RTOS/event_groups.o -o ${OBJECTDIR}/RTOS/event_groups.o RTOS/event_groups.c 
+	
+${OBJECTDIR}/RTOS/heap_4.o: RTOS/heap_4.c  .generated_files/flags/default/254133ede040c7af5116eeed8ad9fd5a9912767d .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/heap_4.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/heap_4.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/heap_4.o.d" -MT "${OBJECTDIR}/RTOS/heap_4.o.d" -MT ${OBJECTDIR}/RTOS/heap_4.o -o ${OBJECTDIR}/RTOS/heap_4.o RTOS/heap_4.c 
+	
+${OBJECTDIR}/RTOS/list.o: RTOS/list.c  .generated_files/flags/default/1e307456323a9b220c3a10f56d2bbc8e7ef2e4a8 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/list.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/list.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/list.o.d" -MT "${OBJECTDIR}/RTOS/list.o.d" -MT ${OBJECTDIR}/RTOS/list.o -o ${OBJECTDIR}/RTOS/list.o RTOS/list.c 
+	
+${OBJECTDIR}/RTOS/port.o: RTOS/port.c  .generated_files/flags/default/6a2a36bd486a7d6e3d4513f8c1409f51e5c3e9cb .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/port.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/port.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/port.o.d" -MT "${OBJECTDIR}/RTOS/port.o.d" -MT ${OBJECTDIR}/RTOS/port.o -o ${OBJECTDIR}/RTOS/port.o RTOS/port.c 
+	
+${OBJECTDIR}/RTOS/queue.o: RTOS/queue.c  .generated_files/flags/default/832317316a2e66296e10201c356abd1d0ad6a9ba .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/queue.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/queue.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/queue.o.d" -MT "${OBJECTDIR}/RTOS/queue.o.d" -MT ${OBJECTDIR}/RTOS/queue.o -o ${OBJECTDIR}/RTOS/queue.o RTOS/queue.c 
+	
+${OBJECTDIR}/RTOS/stream_buffer.o: RTOS/stream_buffer.c  .generated_files/flags/default/614558a31df413c19e297c57956fa19d16be8f71 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/stream_buffer.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/stream_buffer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/stream_buffer.o.d" -MT "${OBJECTDIR}/RTOS/stream_buffer.o.d" -MT ${OBJECTDIR}/RTOS/stream_buffer.o -o ${OBJECTDIR}/RTOS/stream_buffer.o RTOS/stream_buffer.c 
+	
+${OBJECTDIR}/RTOS/tasks.o: RTOS/tasks.c  .generated_files/flags/default/314c3765fc484fe3a3c3d3d8d5e6f8f4fdcee3bb .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/tasks.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/tasks.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/tasks.o.d" -MT "${OBJECTDIR}/RTOS/tasks.o.d" -MT ${OBJECTDIR}/RTOS/tasks.o -o ${OBJECTDIR}/RTOS/tasks.o RTOS/tasks.c 
+	
+${OBJECTDIR}/RTOS/timers.o: RTOS/timers.c  .generated_files/flags/default/c7d0c214726d6727b14d9b1d4cef292c3809d272 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}/RTOS" 
+	@${RM} ${OBJECTDIR}/RTOS/timers.o.d 
+	@${RM} ${OBJECTDIR}/RTOS/timers.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/RTOS/timers.o.d" -MT "${OBJECTDIR}/RTOS/timers.o.d" -MT ${OBJECTDIR}/RTOS/timers.o -o ${OBJECTDIR}/RTOS/timers.o RTOS/timers.c 
+	
+${OBJECTDIR}/mEEPROM.o: mEEPROM.c  .generated_files/flags/default/d2e79c1b3aa38e126b51fcd7fdcceba2d2b20154 .generated_files/flags/default/2f9e58fd8ce1a2611b0e0fd33168db129b9285f3
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mEEPROM.o.d 
+	@${RM} ${OBJECTDIR}/mEEPROM.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -x c -D__$(MP_PROCESSOR_OPTION)__   -mdfp="${DFP_DIR}/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_default=$(CND_CONF)  $(COMPARISON_BUILD)  -gdwarf-3     -MD -MP -MF "${OBJECTDIR}/mEEPROM.o.d" -MT "${OBJECTDIR}/mEEPROM.o.d" -MT ${OBJECTDIR}/mEEPROM.o -o ${OBJECTDIR}/mEEPROM.o mEEPROM.c 
 	
 endif
 

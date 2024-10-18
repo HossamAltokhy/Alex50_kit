@@ -4,6 +4,28 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="RTOS" projectFiles="true">
+        <itemPath>RTOS/include/FreeRTOS.h</itemPath>
+        <itemPath>RTOS/include/FreeRTOSConfig.h</itemPath>
+        <itemPath>RTOS/include/StackMacros.h</itemPath>
+        <itemPath>RTOS/include/atomic.h</itemPath>
+        <itemPath>RTOS/include/croutine.h</itemPath>
+        <itemPath>RTOS/include/deprecated_definitions.h</itemPath>
+        <itemPath>RTOS/include/event_groups.h</itemPath>
+        <itemPath>RTOS/include/list.h</itemPath>
+        <itemPath>RTOS/include/message_buffer.h</itemPath>
+        <itemPath>RTOS/include/mpu_prototypes.h</itemPath>
+        <itemPath>RTOS/include/mpu_wrappers.h</itemPath>
+        <itemPath>RTOS/include/portable.h</itemPath>
+        <itemPath>RTOS/include/portmacro.h</itemPath>
+        <itemPath>RTOS/include/projdefs.h</itemPath>
+        <itemPath>RTOS/include/queue.h</itemPath>
+        <itemPath>RTOS/include/semphr.h</itemPath>
+        <itemPath>RTOS/include/stack_macros.h</itemPath>
+        <itemPath>RTOS/include/stream_buffer.h</itemPath>
+        <itemPath>RTOS/include/task.h</itemPath>
+        <itemPath>RTOS/include/timers.h</itemPath>
+      </logicalFolder>
       <itemPath>mDIO.h</itemPath>
       <itemPath>mLEDS.h</itemPath>
       <itemPath>mBUZZ.h</itemPath>
@@ -19,6 +41,9 @@
       <itemPath>mUART.h</itemPath>
       <itemPath>mSPI.h</itemPath>
       <itemPath>EEPROM_25LC010A.h</itemPath>
+      <itemPath>mTWI.h</itemPath>
+      <itemPath>EEPROM_24C16_I2C.h</itemPath>
+      <itemPath>mEEPROM.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -27,6 +52,17 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="RTOS" projectFiles="true">
+        <itemPath>RTOS/croutine.c</itemPath>
+        <itemPath>RTOS/event_groups.c</itemPath>
+        <itemPath>RTOS/heap_4.c</itemPath>
+        <itemPath>RTOS/list.c</itemPath>
+        <itemPath>RTOS/port.c</itemPath>
+        <itemPath>RTOS/queue.c</itemPath>
+        <itemPath>RTOS/stream_buffer.c</itemPath>
+        <itemPath>RTOS/tasks.c</itemPath>
+        <itemPath>RTOS/timers.c</itemPath>
+      </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>mDIO.c</itemPath>
       <itemPath>mLEDS.c</itemPath>
@@ -43,6 +79,9 @@
       <itemPath>mUART.c</itemPath>
       <itemPath>mSPI.c</itemPath>
       <itemPath>EEPROM_25LC010A.c</itemPath>
+      <itemPath>mTWI.c</itemPath>
+      <itemPath>EEPROM_24C16_I2C.c</itemPath>
+      <itemPath>mEEPROM.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -50,6 +89,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>RTOS</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">

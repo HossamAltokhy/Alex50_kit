@@ -17,7 +17,8 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\stdlib.h \
  c:\program\ files\microchip\xc8\v2.32\avr\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\interrupt.h \
- mLCD4.h mINT.h mADC.h mTimer.h mUART.h mSPI.h EEPROM_25LC010A.h
+ mLCD4.h mINT.h mADC.h mTimer.h mUART.h mSPI.h EEPROM_25LC010A.h mTWI.h \
+ EEPROM_24C16_I2C.h mEEPROM.h
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\io.h:
 
@@ -80,3 +81,9 @@ mUART.h:
 mSPI.h:
 
 EEPROM_25LC010A.h:
+
+mTWI.h:
+
+EEPROM_24C16_I2C.h:
+
+mEEPROM.h:
