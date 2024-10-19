@@ -22,6 +22,7 @@ void LED0_TOGGLE();
 
 void LED1_ON();
 void LED1_OFF();
+void LED1_TOGGLE();
 
 void LED2_ON();
 void LED2_OFF();

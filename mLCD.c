@@ -88,3 +88,16 @@ void LCD4_goto(int row, int coln){
     }
     
 }
+
+void LCD4_delete(int row, int coln){
+    // 0xc0
+    if(row){
+        LCD4_cmd(0xC0|coln);
+    }
+    else{
+        LCD4_cmd(0x80|coln);
+    // 0x80
+    }
+    
+    LCD4_data(' ');
+}

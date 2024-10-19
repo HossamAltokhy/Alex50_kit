@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/main.c</file>
-            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mTWI.h</file>
-            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mTWI.c</file>
-            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/EEPROM_24C16_I2C.h</file>
-            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/EEPROM_24C16_I2C.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/task.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mEEPROM.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mEEPROM.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/FreeRTOSConfig.h</file>
         </group>
     </open-files>
 </project-private>

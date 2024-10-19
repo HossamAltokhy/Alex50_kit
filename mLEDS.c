@@ -18,6 +18,10 @@ void LED0_TOGGLE(){
     PORTC ^= (1<<LED0);
 }
 
+void LED1_TOGGLE(){
+    PORTC ^= (1<<LED1);
+}
+
 void LED1_ON(){
     setPORTC_PIN(LED1, ON);
 }

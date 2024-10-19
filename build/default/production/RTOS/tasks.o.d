@@ -10,7 +10,10 @@ build/default/production/RTOS/tasks.o.d \
  RTOS/include/portable.h RTOS/include/deprecated_definitions.h \
  RTOS/include/portmacro.h RTOS/include/mpu_wrappers.h RTOS/include/task.h \
  RTOS/include/list.h RTOS/include/timers.h RTOS/include/task.h \
- RTOS/include/stack_macros.h
+ RTOS/include/stack_macros.h \
+ c:\program\ files\microchip\xc8\v2.32\avr\avr\include\stdio.h \
+ c:\program\ files\microchip\xc8\v2.32\avr\avr\include\inttypes.h \
+ c:\program\ files\microchip\xc8\v2.32\avr\lib\gcc\avr\5.4.0\include\stdarg.h
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\stdlib.h:
 
@@ -45,3 +48,9 @@ RTOS/include/timers.h:
 RTOS/include/task.h:
 
 RTOS/include/stack_macros.h:
+
+c:\program\ files\microchip\xc8\v2.32\avr\avr\include\stdio.h:
+
+c:\program\ files\microchip\xc8\v2.32\avr\avr\include\inttypes.h:
+
+c:\program\ files\microchip\xc8\v2.32\avr\lib\gcc\avr\5.4.0\include\stdarg.h:

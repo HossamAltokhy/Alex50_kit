@@ -18,7 +18,11 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  c:\program\ files\microchip\xc8\v2.32\avr\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\interrupt.h \
  mLCD4.h mINT.h mADC.h mTimer.h mUART.h mSPI.h EEPROM_25LC010A.h mTWI.h \
- EEPROM_24C16_I2C.h mEEPROM.h
+ EEPROM_24C16_I2C.h mEEPROM.h RTOS/include/FreeRTOSConfig.h \
+ RTOS/include/FreeRTOS.h RTOS/include/FreeRTOSConfig.h \
+ RTOS/include/projdefs.h RTOS/include/portable.h \
+ RTOS/include/deprecated_definitions.h RTOS/include/portmacro.h \
+ RTOS/include/mpu_wrappers.h RTOS/include/task.h RTOS/include/list.h
 
 c:\program\ files\microchip\xc8\v2.32\avr\avr\include\avr\io.h:
 
@@ -87,3 +91,23 @@ mTWI.h:
 EEPROM_24C16_I2C.h:
 
 mEEPROM.h:
+
+RTOS/include/FreeRTOSConfig.h:
+
+RTOS/include/FreeRTOS.h:
+
+RTOS/include/FreeRTOSConfig.h:
+
+RTOS/include/projdefs.h:
+
+RTOS/include/portable.h:
+
+RTOS/include/deprecated_definitions.h:
+
+RTOS/include/portmacro.h:
+
+RTOS/include/mpu_wrappers.h:
+
+RTOS/include/task.h:
+
+RTOS/include/list.h:
