@@ -32,6 +32,7 @@
 #include "RTOS/include/FreeRTOSConfig.h"
 #include "RTOS/include/FreeRTOS.h"
 #include "RTOS/include/task.h"
+#include "RTOS/include/queue.h"
 
 
 
@@ -44,39 +45,20 @@ char * pBuffer = NULL;
 int data = 0;
 TaskStatus_t mTask1Status;
 TaskStatus_t mTask2Status;
-//ISR(USART_RXC_vect){
-//    char data = UDR;
-//    
-//    if(data == 'A'){
-//        flag =0;
-//        xTaskResumeFromISR(T1_Handler);
-//    }
-//}
+xQueueHandle mQueueHandler;
 
 void T1(void* var) {
 
-    vTaskDelay(500);
+    
     while (1) {
         ADC_SC();
         ADC_wait();
-        data = ADC_read()* ADC_step;
-        UART_send_str(str1);
+        data = ADC_read() * ADC_step;
+        if (mQueueHandler != NULL) {
+            xQueueSendToFront(mQueueHandler, &data, 10);
+        }
 
-        vTaskGetInfo(T1_Handler,
-                &mTask1Status,
-                pdTRUE, // Include the high water mark in xTaskDetails.
-                eInvalid);
-        vTaskGetInfo(T2_Handler,
-                &mTask2Status,
-                pdTRUE, // Include the high water mark in xTaskDetails.
-                eInvalid);
-
-        UART_send_num(mTask1Status.eCurrentState);
-        UART_send(',');
-        UART_send_num(mTask2Status.eCurrentState);
-        UART_send('\r');
-        taskEXIT_CRITICAL();
-        vTaskDelay(5);
+        vTaskDelay(500);
     }
 
     vTaskDelete(NULL);
@@ -84,27 +66,20 @@ void T1(void* var) {
 
 void T2(void* var) {
 
+    int *pData = NULL ;
+    vTaskDelay(500);
     while (1) {
+
+        if(mQueueHandler != NULL){
+           xQueueReceive(mQueueHandler,pData, 10); 
+        }
+
         
-        UART_send_num(data);
+        UART_send_num(*pData);
         UART_send('\r');
 
 
-        vTaskGetInfo(T1_Handler,
-                &mTask1Status,
-                pdTRUE, // Include the high water mark in xTaskDetails.
-                eInvalid);
-        vTaskGetInfo(T2_Handler,
-                &mTask2Status,
-                pdTRUE, // Include the high water mark in xTaskDetails.
-                eInvalid);
-
-        UART_send_num(mTask1Status.eCurrentState);
-        UART_send(',');
-        UART_send_num(mTask2Status.eCurrentState);
-        UART_send('\r');
-
-        vTaskDelay(5);
+        vTaskDelay(500);
     }
     vTaskDelete(NULL);
 }
@@ -115,8 +90,8 @@ int main(void) {
     init_LEDs();
     init_UART(9600);
     init_ADC(ADC_CH_0, ADC_Vref_AREF, ADC_PS_128);
-    
 
+    mQueueHandler = xQueueCreate(1, sizeof (int));
     xTaskCreate(T1, "LED0", 200, NULL, 1, &T1_Handler);
     xTaskCreate(T2, "LED1", 200, NULL, 1, &T2_Handler);
 
