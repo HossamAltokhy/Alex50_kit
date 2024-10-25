@@ -3,11 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/main.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/tasks.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/portmacro.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/FreeRTOS.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mADC.c</file>
             <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/task.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mLCD.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/FreeRTOSConfig.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mADC.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/atomic.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mUART.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mLEDS.c</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mLCD4.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/main.c</file>
             <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mEEPROM.h</file>
             <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mEEPROM.c</file>
-            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/RTOS/include/FreeRTOSConfig.h</file>
+            <file>file:/C:/Users/hossa/MPLABXProjects/Alex50_kit.X/mLEDS.h</file>
         </group>
     </open-files>
 </project-private>

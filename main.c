@@ -47,18 +47,21 @@ TaskStatus_t mTask1Status;
 TaskStatus_t mTask2Status;
 xQueueHandle mQueueHandler;
 
+char str1Error [] = "ERROR on T1\r";
+char str2Error [] = "ERROR on T2\r";
+
 void T1(void* var) {
 
-    
+
     while (1) {
         ADC_SC();
         ADC_wait();
-        data = ADC_read() * ADC_step;
+        data = ADC_read()* ADC_step;
         if (mQueueHandler != NULL) {
             xQueueSendToFront(mQueueHandler, &data, 10);
-        }
+        } 
 
-        vTaskDelay(500);
+        vTaskDelay(50);
     }
 
     vTaskDelete(NULL);
@@ -66,20 +69,19 @@ void T1(void* var) {
 
 void T2(void* var) {
 
-    int *pData = NULL ;
-    vTaskDelay(500);
+    int Data = 0;
+    vTaskDelay(50);
     while (1) {
 
-        if(mQueueHandler != NULL){
-           xQueueReceive(mQueueHandler,pData, 10); 
+        if (mQueueHandler != NULL) {
+            if (xQueueReceive(mQueueHandler, &Data, 10) == pdPASS) {
+                UART_send_num(Data);
+                UART_send('\r');
+            }
         }
 
-        
-        UART_send_num(*pData);
-        UART_send('\r');
 
-
-        vTaskDelay(500);
+        vTaskDelay(50);
     }
     vTaskDelete(NULL);
 }
@@ -91,7 +93,7 @@ int main(void) {
     init_UART(9600);
     init_ADC(ADC_CH_0, ADC_Vref_AREF, ADC_PS_128);
 
-    mQueueHandler = xQueueCreate(1, sizeof (int));
+    mQueueHandler = xQueueCreate(10, sizeof (int));
     xTaskCreate(T1, "LED0", 200, NULL, 1, &T1_Handler);
     xTaskCreate(T2, "LED1", 200, NULL, 1, &T2_Handler);
 

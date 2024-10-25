@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include "mADC.h"
 
-
+#include "mUART.h"
 
 void init_ADC(int CH, int Vref, int PR) {
     ADC_selectREF(Vref);
